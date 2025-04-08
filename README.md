@@ -45,6 +45,21 @@ button:hover {
   </style>
 </head>
 <body>
+<script>
+    function calculateAge() {
+      const birthdate = new Date(document.getElementById("birthdate").value);
+      const today = new Date();
+      
+      let age = today.getFullYear() - birthdate.getFullYear();
+      const m = today.getMonth() - birthdate.getMonth();
+
+      if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+        age--;
+      }
+
+      document.getElementById("result").innerText = `You are ${age} years old.`;
+    }
+  </script>
   <div class="container">
     <h1>Age Calculator</h1>
     <label for="birthdate">Enter your birthdate:</label>
